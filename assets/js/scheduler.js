@@ -1,4 +1,4 @@
-$(document).on('ready', function() { 
+$(document).ready(function() { 
 
 // Initialize Firebase
 var config = {
@@ -12,11 +12,22 @@ var config = {
 
   firebase.initializeApp(config);
 
-  $("#addTrainBtn").on("click", function(){
+  const database = firebase.database();
+
+  //TABLE MODS
+  let newTR = $("<tr>");
+  let newTD = $("<td>");
+
+  
+
+  //ADDS TRAIN TO TABLE WITH BUTTON CLICK
+  $("#addTrainBtn").on("click", function(event){
         event.preventDefault(); // prevents form default from reloading page
 
+        console.log("button clicked")
+
         //Grabs input from form
-        const newTrain = {
+        let newTrain = {
             trainName: $("#train-name-input").val().trim(),
             destination: $("#destination-input").val().trim(),
             frequency: $("#frequency-input").val().trim(),
@@ -31,8 +42,6 @@ var config = {
 
         //pushes train data to firebase
         database.ref().push(newTrain);
-
-
     });//end submitBtn onClick
 
 }); //end of onReady Function

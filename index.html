@@ -12,8 +12,7 @@
     <!-- RESET CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
     <!-- BOOTSTRAP CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 
@@ -23,93 +22,111 @@
 
 <body>
 
-<!-- TRAIN SCHEDULER -->
-<div class="container">
+    <!-- TRAIN SCHEDULER -->
+    <div class="container">
 
         <!-- JUMBOTRON HEADER -->
         <div class="jumbotron" style="background-color: rgb(41, 40, 40); color: white">
-          <h1 class="text-center">WORLD WIDE TRAIN SCHEDULE</h1>
-          <h3 class="text-center">Your Guide to Train Schedules Around the World</h3>
+            <h1 class="text-center">WORLD WIDE TRAIN SCHEDULE</h1>
+            <h3 class="text-center">Your Guide to Train Schedules Around the World</h3>
         </div>
-  
+
         <div class="row">
-          <div class="col-lg-12">
-  
-          <!-- CURRENT TRAINS -->
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title"><strong>CURRENT TRAIN SCHEDULE</strong></h3>
-              </div>
-              <div class="panel-body">
-                <table class="table table-hover" id='train-table'>
-                  <thead>
-                    <tr>
-                      <th>TRAIN NAME</th>
-                      <th>DESTINATION</th>
-                      <th>FREQUENCY (Min)</th>
-                      <th>NEXT ARRIVAL TIME</th>
-                      <th>MINUTES AWAY</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
-              </div>
+            <div class="col-lg-12">
+
+                <!-- CURRENT TRAINS -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>CURRENT TRAIN SCHEDULE</strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover" id='train-table'>
+                            <thead>
+                                <tr>
+                                    <th>TRAIN NAME</th>
+                                    <th>DESTINATION</th>
+                                    <th>FREQUENCY (Min)</th>
+                                    <th>NEXT ARRIVAL TIME</th>
+                                    <th>MINUTES AWAY</th>
+                                </tr>
+                            </thead>
+                            <tbody id = "train-data">
+                                <tr>
+                                        <td>TRAIN NAME</td>
+                                        <td>DESTINATION</td>
+                                        <td>FREQUENCY (Min)</td>
+                                        <td>NEXT ARRIVAL TIME</td>
+                                        <td>MINUTES AWAY</td>
+                                </tr>
+                                <!-- data goes here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ADD TRAIN  -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>Add Train to Schedule</strong>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <!-- ENTRY FORM -->
+                        <form>
+                            <div class="form-group">
+                                <label for="train-name-input">Train Name</label>
+                                <input class="form-control" id="train-name-input" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destination-input">Destination</label>
+                                <input class="form-control" id="destination-input" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="frequency-input">Frequency (Min)</label>
+                                <input class="form-control" id="frequency-input" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="first-time-input">First Train Time (Military Time)</label>
+                                <input class="form-control" id="first-time-input" type="text">
+                            </div>
+
+                            <!-- submit button -->
+                            <button class="btn btn-primary" id="addTrainBtn" type="submit">Add Train</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
             </div>
-  
-            <!-- ADD TRAIN  -->
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title"><strong>Add Train to Schedule</strong></h3>
-              </div>
-              <div class="panel-body">
-  
-                <!-- ENTRY FORM -->
-                <form>
-                  <div class="form-group">
-                    <label for="train-name-input">Train Name</label>
-                    <input class="form-control" id="train-name-input" type="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="destination-input">Destination</label>
-                    <input class="form-control" id="destination-input" type="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="frequency-input">Frequency (Min)</label>
-                    <input class="form-control" id="frequency-input" type="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="first-time-input">First Train Time</label>
-                    <input class="form-control" id="first-time-input" type="text">
-                  </div>
-                  <button class="btn btn-primary" id="addTrainBtn" type="submit">Add Train</button>
-                </form>
-  
-              </div>
-  
-            </div>
-  
-          </div>
-  
+
         </div>
-  
-      </div>
 
- <!-- FIREBASE JS -->
- <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    </div>
 
- <!-- jquery + bootstrap jquery -->
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!-- FIREBASE JS -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    </script>
 
- <!--My javascript code -->
- <script type="text/javascript" src="assets/js/scheduler.js"></script>
+    <!-- jquery + bootstrap jquery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 
- <!-- Scripts from Bootstrap: Popper.js, then Bootstrap JS -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-     crossorigin="anonymous"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-     crossorigin="anonymous"></script>
+    <!--My javascript code -->
+    <script type="text/javascript" src="assets/js/scheduler.js"></script>
+
+    <!-- Scripts from Bootstrap: Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 
 </body>
 
