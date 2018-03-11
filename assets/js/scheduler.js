@@ -14,11 +14,28 @@ var config = {
 
   const database = firebase.database();
 
-  //TABLE MODS
-  let newTR = $("<tr>");
-  let newTD = $("<td>");
+  //TABLE MOD
 
-  
+  database.ref().on("child_added", function(trainInfo){
+     // console.log(trainInfo.val());
+     let currentTrain = trainInfo.val();
+     let newTR = $("<tr>");
+    //  let newTD = $("<td>");
+
+    //  newTD.html(currentTrain.trainName);
+     newTR.append($("<td>" + currentTrain.trainName + "</td>"));
+     newTR.append($("<td>" + currentTrain.destination + "</td>"));
+     newTR.append($("<td>" + currentTrain.frequency + "</td>"));
+
+
+
+    $("#train-data").append(newTR);
+
+
+
+   });
+
+
 
   //ADDS TRAIN TO TABLE WITH BUTTON CLICK
   $("#addTrainBtn").on("click", function(event){
