@@ -23,16 +23,77 @@
 
 <body>
 
+<!-- TRAIN SCHEDULER -->
+<div class="container">
 
-
-
-
-
-
-
-
-
-
+        <!-- JUMBOTRON HEADER -->
+        <div class="jumbotron" style="background-color: rgb(41, 40, 40); color: white">
+          <h1 class="text-center">WORLD WIDE TRAIN SCHEDULE</h1>
+          <h3 class="text-center">Your Guide to Train Schedules Around the World</h3>
+        </div>
+  
+        <div class="row">
+          <div class="col-lg-12">
+  
+          <!-- CURRENT TRAINS -->
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>CURRENT TRAIN SCHEDULE</strong></h3>
+              </div>
+              <div class="panel-body">
+                <table class="table table-hover" id='train-table'>
+                  <thead>
+                    <tr>
+                      <th>TRAIN NAME</th>
+                      <th>DESTINATION</th>
+                      <th>FREQUENCY (Min)</th>
+                      <th>NEXT ARRIVAL TIME</th>
+                      <th>MINUTES AWAY</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+            <!-- ADD TRAIN  -->
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><strong>Add Train to Schedule</strong></h3>
+              </div>
+              <div class="panel-body">
+  
+                <!-- ENTRY FORM -->
+                <form>
+                  <div class="form-group">
+                    <label for="train-name-input">Train Name</label>
+                    <input class="form-control" id="train-name-input" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label for="destination-input">Destination</label>
+                    <input class="form-control" id="destination-input" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label for="frequency-input">Frequency (Min)</label>
+                    <input class="form-control" id="frequency-input" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label for="first-time-input">First Train Time</label>
+                    <input class="form-control" id="first-time-input" type="text">
+                  </div>
+                  <button class="btn btn-primary" id="addTrainBtn" type="submit">Add Train</button>
+                </form>
+  
+              </div>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
 
  <!-- FIREBASE JS -->
  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
