@@ -18,20 +18,29 @@ var config = {
 
   database.ref().on("child_added", function(trainInfo){
      // console.log(trainInfo.val());
-     let currentTrain = trainInfo.val();
-     let newTR = $("<tr>");
-    //  let newTD = $("<td>");
+     let train = trainInfo.val();
 
-    //  newTD.html(currentTrain.trainName);
-     newTR.append($("<td>" + currentTrain.trainName + "</td>"));
-     newTR.append($("<td>" + currentTrain.destination + "</td>"));
-     newTR.append($("<td>" + currentTrain.frequency + "</td>"));
+     let currentTime = moment(new Date ());
+        console.log(currentTime);
+
+     let nextArrival = 0 ; // firstTime + frequency till greater than current time
+                    // while next train is > than current time +frequency until < than current time in a loop
+     
+     let minutesAway = currentTime.diff(nextArrival, "Minutes");
+     
+
+
+     let newTR = $("<tr>");
+     
+     newTR.append($("<td>" + train.trainName + "</td>"));
+     newTR.append($("<td>" + train.destination + "</td>"));
+     newTR.append($("<td>" + train.frequency + "</td>"));
+     newTR.append($("<td>" + nextArrival.format("h:mm") + "</td>"));
+     newTR.append($("<td>" + minutesAway + "</td>"));
 
 
 
     $("#train-data").append(newTR);
-
-
 
    });
 
