@@ -13,6 +13,9 @@ $(document).ready(function() {
       firebase.initializeApp(config);
     
       const database = firebase.database();
+
+      //loads database data to table
+
     
       //ADDS TRAIN DATA TO FIREBASE WITH BUTTON CLICK
       $("#addTrainBtn").on("click", function(event){
@@ -45,8 +48,8 @@ $(document).ready(function() {
 
         });//end submitBtn onClick
 
-
     
+    let nextTrain;
     
     // DATA CALCULATED AND APPENDED TO TABLE
       database.ref().on("child_added", function(trainInfo){
@@ -78,6 +81,7 @@ $(document).ready(function() {
 
         //adds the minutes away to the current time to show when the next train is.
         let nextTrain = moment().add(minutesAway, "minutes");
+
         //formats the nextTrain into an actual time
         let arrivalTime = moment(nextTrain).format("hh:mm");
 
@@ -96,8 +100,6 @@ $(document).ready(function() {
         //let nextArrival = (++[trainInfo.firstTime + trainInfo.frequency]); // firstTime + frequency till greater than current time
                        // while next train is > than current time +frequency until < than current time in a loop
         
-        
-        
    
    
         let newTR = $("<tr>");
@@ -105,7 +107,7 @@ $(document).ready(function() {
         newTR.append($("<td>" + train.trainName + "</td>"));
         newTR.append($("<td>" + train.destination + "</td>"));
         newTR.append($("<td>" + train.frequency + "</td>"));
-        newTR.append($("<td>" + nextTrain.format("h:mm") + "</td>"));
+        newTR.append($("<td>" + nextTrain + "</td>"));
         newTR.append($("<td>" + minutesAway + "</td>"));
    
    
