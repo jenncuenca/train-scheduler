@@ -107,7 +107,7 @@ $(document).ready(function() {
         newTR.append($("<td>" + train.trainName + "</td>"));
         newTR.append($("<td>" + train.destination + "</td>"));
         newTR.append($("<td>" + train.frequency + "</td>"));
-        newTR.append($("<td>" + nextTrain + "</td>"));
+        newTR.append($("<td>" + arrivalTime + "</td>"));
         newTR.append($("<td>" + minutesAway + "</td>"));
    
    
